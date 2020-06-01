@@ -5,13 +5,13 @@ import com.example.retrofit.DataBean
 import com.example.retrofit.RetrofitManager
 import com.example.retrofit.RetrofitManager.customCallback
 
-class DataPresenter(constract: DataContract.View) : DataContract.Presenter {
+class DataPresenter(view: DataContract.View) : DataContract.Presenter {
 
-    private val constract = constract
+    private val mView = view
 
     var arrayList = ArrayList<String>()
 
-    override fun retrofitGET() {
+    override fun retrofitGet() {
 
         RetrofitManager.Data.getJsonData("doFindTypeJ", "6")
             .enqueue(customCallback<List<DataBean>> { success,
@@ -32,7 +32,7 @@ class DataPresenter(constract: DataContract.View) : DataContract.Presenter {
                     Log.d("response", this.toString())
                 }
 
-                constract.showData(arrayList)
+                mView.showData(arrayList)
             })
 
     }

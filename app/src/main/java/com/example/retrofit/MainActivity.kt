@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), DataContract.View {
 
-    var dataPresenter: DataPresenter? = null
+    private var dataPresenter: DataPresenter? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity(), DataContract.View {
 
         init()
 
-        dataPresenter?.retrofitGET()
+        dataPresenter?.retrofitGet()
 
     }
 

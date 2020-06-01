@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitManager {
 
     private lateinit var retrofit: Retrofit
-    private val timeout = 10L
+    private const val timeout = 10L
 
     var Data = retrofitCreate(Data::class.java)
 

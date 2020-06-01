@@ -7,6 +7,6 @@ interface DataContract {
     }
 
     interface Presenter {
-        fun retrofitGET()
+        fun retrofitGet()
     }
 }
