@@ -1,4 +1,4 @@
-package com.example.retrofit_
+package com.example.retrofit
 
 import android.util.Log
 import com.google.gson.GsonBuilder

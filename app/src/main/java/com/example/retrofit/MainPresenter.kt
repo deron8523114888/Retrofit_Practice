@@ -1,7 +1,7 @@
-package com.example.retrofit_
+package com.example.retrofit
 
 import android.util.Log
-import com.example.retrofit_.RetrofitManager.customCallback
+import com.example.retrofit.RetrofitManager.customCallback
 
 class MainPresenter(constract: DataContract.MainActivity) : DataContract.MainPresenter {
 
