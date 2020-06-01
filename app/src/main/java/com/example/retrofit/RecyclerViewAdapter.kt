@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class RecyclerViewAdapter(private val arrayList: ArrayList<String>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerViewAdapter(private val arrayList: ArrayList<DataBean>)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -24,7 +24,8 @@ class RecyclerViewAdapter(private val arrayList: ArrayList<String>) :
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
         val tvBMI: TextView = holder.itemView.findViewById(R.id.tv_data)
-        tvBMI.text = arrayList[position] + "\n"
+        val title = arrayList[position].title
+        tvBMI.text = title
 
     }
 }

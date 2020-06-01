@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), DataContract.View {
     }
 
 
-    override fun showData(data: ArrayList<String>) {
+    override fun showData(data: ArrayList<DataBean>) {
 
         rv_data.adapter = RecyclerViewAdapter(data)
 

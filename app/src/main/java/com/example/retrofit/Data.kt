@@ -10,6 +10,6 @@ interface Data {
     fun getJsonData(
         @Query("method") method: String,
         @Query("category") category: String
-    ): retrofit2.Call<List<DataBean>>
+    ): retrofit2.Call<ArrayList<DataBean>>
 
 }

@@ -9,18 +9,17 @@ class DataPresenter(view: DataContract.View) : DataContract.Presenter {
 
     private val mView = view
 
-    var arrayList = ArrayList<String>()
-
     override fun retrofitGet() {
 
         RetrofitManager.Data.getJsonData("doFindTypeJ", "6")
-            .enqueue(customCallback<List<DataBean>> { success,
+            .enqueue(customCallback<ArrayList<DataBean>> { success,
                                                       failure,
                                                       error ->
 
                 success?.run {
-                    this.body()?.forEach {
-                        arrayList.add(it.title)
+                    this.body()?.let {
+                        // 透過 showData 的 function, 通知 view 進行更新, 同時傳遞 data 出去
+                        mView.showData(it)
                     }
                 }
 
@@ -31,8 +30,6 @@ class DataPresenter(view: DataContract.View) : DataContract.Presenter {
                 error?.run {
                     Log.d("response", this.toString())
                 }
-
-                mView.showData(arrayList)
             })
 
     }
