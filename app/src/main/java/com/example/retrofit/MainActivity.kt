@@ -3,11 +3,13 @@ package com.example.retrofit
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.retrofit.mvp.DataContract
+import com.example.retrofit.mvp.DataPresenter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), DataContract.MainActivity {
+class MainActivity : AppCompatActivity(), DataContract.View {
 
-    var presenter: MainPresenter? = null
+    var dataPresenter: DataPresenter? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,13 +18,13 @@ class MainActivity : AppCompatActivity(), DataContract.MainActivity {
 
         init()
 
-        presenter?.retrofitGET()
+        dataPresenter?.retrofitGET()
 
     }
 
 
     fun init() {
-        presenter = MainPresenter(this)
+        dataPresenter = DataPresenter(this)
 
         val linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.orientation = LinearLayoutManager.VERTICAL

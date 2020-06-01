@@ -1,17 +1,12 @@
-package com.example.retrofit
+package com.example.retrofit.mvp
 
 interface DataContract {
 
-    interface MainActivity {
-
+    interface View {
         fun showData(data: ArrayList<String>)
-
     }
 
-
-    interface MainPresenter {
+    interface Presenter {
         fun retrofitGET()
     }
-
-
 }

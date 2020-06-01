@@ -1,9 +1,11 @@
-package com.example.retrofit
+package com.example.retrofit.mvp
 
 import android.util.Log
+import com.example.retrofit.DataBean
+import com.example.retrofit.RetrofitManager
 import com.example.retrofit.RetrofitManager.customCallback
 
-class MainPresenter(constract: DataContract.MainActivity) : DataContract.MainPresenter {
+class DataPresenter(constract: DataContract.View) : DataContract.Presenter {
 
     private val constract = constract
 
