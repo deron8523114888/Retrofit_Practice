@@ -1,4 +1,4 @@
-package com.example.retrofit_
+package com.example.retrofit
 
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -10,6 +10,6 @@ interface Data {
     fun getJsonData(
         @Query("method") method: String,
         @Query("category") category: String
-    ): retrofit2.Call<List<DataBean>>
+    ): retrofit2.Call<ArrayList<DataBean>>
 
 }

@@ -1,4 +1,4 @@
-package com.example.retrofit_
+package com.example.retrofit
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,8 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class RecyclerViewAdapter(val arrayList: ArrayList<String>) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RecyclerViewAdapter(private val arrayList: ArrayList<DataBean>)
+    : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
@@ -23,8 +23,9 @@ class RecyclerViewAdapter(val arrayList: ArrayList<String>) :
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        val BMI: TextView = holder.itemView.findViewById(R.id.tv_data)
-        BMI.setText(arrayList[position] + "\n")
+        val tvBMI: TextView = holder.itemView.findViewById(R.id.tv_data)
+        val title = arrayList[position].title
+        tvBMI.text = title
 
     }
 }
