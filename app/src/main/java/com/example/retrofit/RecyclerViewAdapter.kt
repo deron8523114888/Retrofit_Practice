@@ -23,9 +23,9 @@ class RecyclerViewAdapter(private val arrayList: ArrayList<DataBean>)
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
-        val tvBMI: TextView = holder.itemView.findViewById(R.id.tv_data)
+        val tv_data: TextView = holder.itemView.findViewById(R.id.tv_data)
         val title = arrayList[position].title
-        tvBMI.text = title
+        tv_data.text = title
 
     }
 }

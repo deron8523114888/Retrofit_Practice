@@ -1,10 +1,13 @@
 package com.example.retrofit
 
+import android.opengl.Visibility
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.retrofit.mvp.DataContract
 import com.example.retrofit.mvp.DataPresenter
+import com.timchentw.loadingview.LoadingView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), DataContract.View {
@@ -17,8 +20,7 @@ class MainActivity : AppCompatActivity(), DataContract.View {
         setContentView(R.layout.activity_main)
 
         init()
-
-        dataPresenter?.retrofitGet()
+        click()
 
     }
 
@@ -33,8 +35,30 @@ class MainActivity : AppCompatActivity(), DataContract.View {
 
 
     override fun showData(data: ArrayList<DataBean>) {
-
+        tv_reloadview.finishLoading(true)
         rv_data.adapter = RecyclerViewAdapter(data)
+    }
+
+
+    override fun loadFailure(){
+        tv_reloadview.finishLoading(false)
+    }
+
+    fun click(){
+
+        bt_download.setOnClickListener(View.OnClickListener {
+
+            tv_reloadview.startLoading()
+            dataPresenter?.retrofitGet()
+
+        })
+
+        tv_reloadview.listener = object : LoadingView.OnLoadingViewListener {
+            override fun onReload() {
+                tv_reloadview.startLoading()
+                dataPresenter?.retrofitGet()
+            }
+        }
 
     }
 }

@@ -6,6 +6,8 @@ interface DataContract {
 
     interface View {
         fun showData(data: ArrayList<DataBean>)
+
+        fun loadFailure()
     }
 
     interface Presenter {

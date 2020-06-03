@@ -24,10 +24,13 @@ class DataPresenter(view: DataContract.View) : DataContract.Presenter {
                 }
 
                 failure?.run {
+                    mView.loadFailure()
                     Log.d("response", "Get failure")
+
                 }
 
                 error?.run {
+                    mView.loadFailure()
                     Log.d("response", this.toString())
                 }
             })
