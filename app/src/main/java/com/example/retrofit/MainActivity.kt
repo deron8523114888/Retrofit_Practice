@@ -46,12 +46,11 @@ class MainActivity : AppCompatActivity(), DataContract.View {
 
     fun click(){
 
-        bt_download.setOnClickListener(View.OnClickListener {
+        bt_download.setOnClickListener {
 
             tv_reloadview.startLoading()
             dataPresenter?.retrofitGet()
-
-        })
+        }
 
         tv_reloadview.listener = object : LoadingView.OnLoadingViewListener {
             override fun onReload() {
